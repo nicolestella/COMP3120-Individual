@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+// styling
+import { makeStyles } from '@material-ui/styles'
+// import material ui components
+import Typography from '@material-ui/core/Typography'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const useStyles = makeStyles((theme) => ({
+	root: {
+		display: 'flex',
+		flexDirection: 'column',
+	},
+	heading: {
+		alignItems: 'flex-start',
+		justifyContent: 'flex-start',
+	},
+}))
+
+function App () {
+	const classes = useStyles()
+
+	return (
+		<div className={classes.root}>
+			<Typography variant="h3">
+				Poetique
+			</Typography>
+		</div>
+	)
 }
 
-export default App;
+export default App
