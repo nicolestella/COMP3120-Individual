@@ -13,11 +13,11 @@ Users are able to:
 - Vote on existing ones.
 
 ## Front end
-**Language**: ReactJS.
+**Language**: ReactJS
 
-**External Libraries**: [Material-UI]https://material-ui.com/.
+**External Libraries**: [Material-UI]https://material-ui.com/
 
 ## Back end
-**Language**: JSON.
+**Language**: JSON
 
-**Server**: Express API Server.
+**Server**: Express API Server
