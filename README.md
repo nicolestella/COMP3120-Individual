@@ -15,7 +15,7 @@ Users are able to:
 ## Front end
 **Language**: ReactJS
 
-**External Libraries**: [Material-UI]https://material-ui.com/
+**External Libraries**: [Material-UI](https://material-ui.com/)
 
 ## Back end
 **Language**: JSON
