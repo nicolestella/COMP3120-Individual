@@ -1,29 +1,44 @@
 import React from 'react'
-// styling
-import { makeStyles } from '@material-ui/styles'
-// import material ui components
-import Typography from '@material-ui/core/Typography'
-
-const useStyles = makeStyles((theme) => ({
-	root: {
-		display: 'flex',
-		flexDirection: 'column',
-	},
-	heading: {
-		alignItems: 'flex-start',
-		justifyContent: 'flex-start',
-	},
-}))
+import axios from 'axios'
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+} from 'react-router-dom'
+// import pages
+import FullPoem from './pages/FullPoem'
+import Home from './pages/Home'
+import NewPoem from './pages/NewPoem'
 
 function App () {
-	const classes = useStyles()
+	const [data, setData] = React.useState([])
+
+	const baseURL = 'http://localhost:3001/api/poems'
+
+	React.useEffect(() => {
+		setTimeout(() => {
+			axios.get(baseURL)
+				.then((res) => {
+					setData(res.data)
+				})
+		}, 1000)
+	}, [data])
 
 	return (
-		<div className={classes.root}>
-			<Typography variant="h3">
-				Poetique
-			</Typography>
-		</div>
+		<Router>
+			<Switch>
+				<Route path="/poems/:id">
+					<FullPoem baseURL={baseURL} />
+				</Route>
+				<Route path="/new">
+					<NewPoem baseURL={baseURL}/>
+				</Route>
+				<Route path="/">
+					<Home poems={data} baseURL={baseURL} />
+				</Route>
+			</Switch>
+		</Router>
 	)
 }
 
