@@ -3,6 +3,7 @@ Nicole Stella 44008724
 
 # Poetique
 
+https://intense-tor-06043.herokuapp.com/
 A simple poetry sharing service.
 
 ## Some Details
@@ -15,9 +16,15 @@ Users are able to:
 ## Front end
 **Language**: ReactJS
 
-**External Libraries**: [Material-UI](https://material-ui.com/)
+**External Libraries**: 
+- [clsx](https://www.npmjs.com/package/clsx)
+- [Material-UI](https://material-ui.com/)
+- [Unsplash](https://source.unsplash.com/)
 
 ## Back end
 **Language**: JSON
 
-**Server**: Express API Server
+**External Libraries**:
+- [Axios](https://axios-http.com/)
+- [Express](http://expressjs.com/)
+- [json-server](https://www.npmjs.com/package/json-server)

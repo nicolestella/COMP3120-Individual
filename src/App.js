@@ -13,7 +13,7 @@ import NewPoem from './pages/NewPoem'
 function App () {
 	const [data, setData] = React.useState([])
 
-	const baseURL = 'http://localhost:3001/api/poems'
+	const baseURL = '/api/poems'
 
 	React.useEffect(() => {
 		setTimeout(() => {
