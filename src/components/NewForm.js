@@ -1,15 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 // import stylings
 import { makeStyles } from '@material-ui/styles'
 import theme from '../config/theme'
 // import material ui components
-import TextField from '@material-ui/core/TextField'
-import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(() => ({
 	paper: {
@@ -40,6 +40,11 @@ const useStyles = makeStyles(() => ({
 	},
 }))
 
+/**
+ *
+ * @param {String} baseURL: The Base URL used to make GET and POST requests.
+ * @returns The form used to fill in the details of a new poem.
+ */
 const NewForm = ({ baseURL }) => {
 	const classes = useStyles()
 	const [poem, setPoem] = React.useState({
@@ -54,6 +59,8 @@ const NewForm = ({ baseURL }) => {
 		text: '',
 	})
 
+	// Function to check if all the fields have been filled.
+	// If so, make a POST request with the poem object.
 	const validate = () => {
 		const message = {
 			title: '',
@@ -73,7 +80,6 @@ const NewForm = ({ baseURL }) => {
 		setError(message)
 
 		if (error.title.length < 1 && error.author.length < 1 && error.text.length < 1) {
-			console.log(poem)
 			axios.post(baseURL, poem)
 		}
 	}
@@ -129,6 +135,8 @@ const NewForm = ({ baseURL }) => {
 					error={error.text.length > 0}
 					helperText={error.text}
 				/>
+
+				{/* The link should only navigate if there are no errors. */}
 				<Link
 					to={(error.title.length < 1 && error.author.length < 1 && error.text.length < 1) && '/'}
 					style={{ textDecoration: 'none', color: '#000' }}

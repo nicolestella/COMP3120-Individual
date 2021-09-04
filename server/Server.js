@@ -262,13 +262,20 @@ app.post('/api/poems/:id', (req, res) => {
 	const p = data.find((item) => item.id === id)
 	const index = data.findIndex((item) => item.id === id)
 
+	// If the data with requested id has been found,
 	if (index >= 0) {
+		// Toggle the liked status of that item
 		p.liked = !p.liked
+
+		// If the user likes it, increment the number of votes.
+		// Otherwise, decrement it.
 		if (p.liked) {
 			p.votes++
 		} else {
 			p.votes--
 		}
+
+		// Set the data at that index to be the modified object.
 		data[index] = p
 		res.json(p)
 	} else {

@@ -5,8 +5,6 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/styles'
 import theme from '../config/theme'
 // import material ui components
-import TextField from '@material-ui/core/TextField'
-import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 // import custom components
 import NewForm from '../components/NewForm'
@@ -29,6 +27,11 @@ const useStyles = makeStyles(() => ({
 	},
 }))
 
+/**
+ *
+ * @param {String} baseURL: The Base URL used to make GET and POST requests.
+ * @returns The New Poem page.
+ */
 const NewPoem = ({ baseURL }) => {
 	const classes = useStyles()
 

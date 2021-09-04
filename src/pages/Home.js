@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import axios from 'axios'
 // import stylings
 import { makeStyles } from '@material-ui/styles'
 // import material ui components
@@ -16,6 +15,12 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
+/**
+ *
+ * @param {Array} poems: Array of poem objects.
+ * @param {String} baseURL: The Base URL used to make GET and POST requests.
+ * @returns The Homepage.
+ */
 const Home = ({ poems, baseURL }) => {
 	const classes = useStyles()
 

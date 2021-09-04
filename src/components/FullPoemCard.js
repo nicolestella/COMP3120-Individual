@@ -1,18 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import axios from 'axios'
 import clsx from 'clsx'
+import PropTypes from 'prop-types'
 // import stylings
 import { makeStyles } from '@material-ui/styles'
 import theme from '../config/theme'
 // import material ui components
 import Card from '@material-ui/core/Card'
-import CardMedia from '@material-ui/core/CardMedia'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
-import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
+import Typography from '@material-ui/core/Typography'
 // import icons
 import FavoriteIcon from '@material-ui/icons/Favorite'
 
@@ -20,6 +19,9 @@ const useStyles = makeStyles(() => ({
 	card: {
 		display: 'flex',
 		flexDirection: 'column',
+		alignSelf: 'center',
+		justifySelf: 'center',
+		marginTop: '12vh',
 	},
 	title: {
 		margin: theme.spacing(2),
@@ -48,9 +50,16 @@ const useStyles = makeStyles(() => ({
 	},
 }))
 
+/**
+ *
+ * @param {Object} poem: A poem object with id, title, author, text, votes, and liked.
+ * @param {String} baseURL: The base URL used to make GET and POST requests.
+ * @returns The card containing the full poem details and the image background.
+ */
 const FullPoemCard = ({ poem, baseURL }) => {
 	const classes = useStyles()
 
+	// Function to render a new line for each '\n' found
 	const newLine = (text) => {
 		const t = text
 		return t.split('\n').map((str, id) => (
@@ -60,12 +69,14 @@ const FullPoemCard = ({ poem, baseURL }) => {
 		))
 	}
 
+	// Function to like/upvote the poem
 	const onLike = (id) => {
 		axios.post(baseURL + `/${id}`)
 	}
 
 	return (
 		<div style={{ display: 'flex', flexDirection: 'row' }}>
+			{/* The poem card */}
 			<Card className={classes.card}>
 				<CardContent>
 					<Typography variant="h3" align="center" className={classes.title}>
@@ -88,6 +99,8 @@ const FullPoemCard = ({ poem, baseURL }) => {
 					</Typography>
 				</CardActions>
 			</Card>
+
+			{/* The image background */}
 			<img
 				src={`https://source.unsplash.com/collection/12221199/?sig=${poem.id}`}
 				className={classes.img}

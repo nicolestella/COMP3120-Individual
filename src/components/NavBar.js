@@ -1,13 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 // import stylings
 import { makeStyles } from '@material-ui/styles'
 // import material ui components
 import AppBar from '@material-ui/core/AppBar'
-import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import theme from '../config/theme'
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
 	appBar: {
@@ -33,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
+/**
+ *
+ * @param {Node} children: The children nested inside the NavBar object.
+ * @param {Boolean} hasButton: Does it have the "Add New" button or not.
+ * @returns The AppBar at the top of the screen
+ */
 const NavBar = ({ children, hasButton }) => {
 	const classes = useStyles()
 
@@ -55,9 +60,7 @@ const NavBar = ({ children, hasButton }) => {
 				)}
 			</AppBar>
 
-			<div>
-				{children}
-			</div>
+			{children}
 		</div>
 	)
 }

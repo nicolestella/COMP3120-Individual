@@ -10,13 +10,13 @@ import { withRouter } from 'react-router'
 import { makeStyles } from '@material-ui/styles'
 import theme from '../config/theme'
 // import material ui components
-import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
 // import icons
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 // import custom components
-import NavBar from '../components/NavBar'
 import FullPoemCard from '../components/FullPoemCard'
+import NavBar from '../components/NavBar'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -36,24 +36,21 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
+/**
+ *
+ * @param {String} baseURL: The Base URL used to make GET and POST requests.
+ * @returns The page displaying the full details of a given poem.
+ */
 const FullPoem = ({ baseURL }) => {
 	const id = useParams().id
 	const [foundID, setFoundID] = React.useState('')
 	const [poem, setPoem] = React.useState({})
 	const classes = useStyles()
 
-	const newLine = (text) => {
-		const t = text
-		return t.split('\n').map((str, id) => (
-			<Typography key={id} align="center">
-				{str}
-			</Typography>
-		))
-	}
-
 	React.useEffect(() => {
 		if (id) {
 			setTimeout(() => {
+				// Make a GET request using the given id
 				axios.get(baseURL + `/${id}`)
 					.then((res) => {
 						if (res.status !== 404) {
@@ -77,15 +74,19 @@ const FullPoem = ({ baseURL }) => {
 					</Button>
 				</Link>
 				<div className={classes.poemDiv}>
+					{/* If poem id is undefined, show the loading sign */}
 					{poem.id === undefined && (
 						<Typography>Loading...</Typography>
 					)}
+
+					{/* If poem id is found and the object is found, display it */}
 					{foundID === 'y' && poem.id !== undefined &&
 					(
 						<FullPoemCard poem={poem} baseURL={baseURL}/>
 					)
 					}
 
+					{/* If object is not found, display the message */}
 					{foundID === 'n' &&
 					(
 						<Typography>
