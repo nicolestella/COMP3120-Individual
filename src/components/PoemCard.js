@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
+import ReactMarkdown from 'react-markdown'
 // import stylings
 import { makeStyles } from '@material-ui/styles'
 import theme from '../config/theme'
@@ -51,9 +52,9 @@ const PoemCard = ({ poem, baseURL }) => {
 	const newLine = (text) => {
 		const t = text
 		return t.split('\n', 2).map((str, id) => (
-			<Typography key={id} noWrap>
+			<ReactMarkdown key={id}>
 				{str}
-			</Typography>
+			</ReactMarkdown>
 		))
 	}
 

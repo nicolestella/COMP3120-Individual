@@ -14,6 +14,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 // import icons
 import FavoriteIcon from '@material-ui/icons/Favorite'
+import ReactMarkdown from 'react-markdown'
 
 const useStyles = makeStyles(() => ({
 	card: {
@@ -63,9 +64,9 @@ const FullPoemCard = ({ poem, baseURL }) => {
 	const newLine = (text) => {
 		const t = text
 		return t.split('\n').map((str, id) => (
-			<Typography key={id} align="center">
+			<ReactMarkdown key={id}>
 				{str}
-			</Typography>
+			</ReactMarkdown>
 		))
 	}
 

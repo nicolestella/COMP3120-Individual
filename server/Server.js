@@ -187,6 +187,25 @@ let data = [
 		votes: 24,
 		liked: false,
 	},
+	{
+		id: 10,
+		title: "Math",
+		author: "Scott Steiner",
+		text: "You know they say that all men are created equal,\n" +
+			"But you look at me and you look at Samoa Joe and you can see that statement is not true.\n" +
+			"See, normally if you go one on one with another wrestler, you got a 50/50 chance of winning.\n" +
+			"But I'm a genetic freak and I'm not normal! So you got a 25%, AT BEST, at beat me.\n" +
+			"Then you add Kurt Angle to the mix, your chances of winning drastic go down.\n" +
+			"See the 3 way at Sacrifice, you got a 33 1 / 3 chance of winning,\n" +
+			"but I, I got a 66 and 2/3 chance of winning,\n" +
+			"because Kurt Angle KNOWS he can't beat me and he's not even gonna try!\n" +
+			"So Samoa Joe, you take your 33 1/3 chance, minus my 25% chance and you got an 8 1/3 chance of winning at Sacrifice.\n" +
+			"But then you take my 75% chance of winning, if we was to go one on one,\n" +
+			"And then add 66 2 / 3 per cents, I got 141 2 / 3 chance of winning at Sacrifice.\n" +
+			"See Joe, the numbers don't lie, and they spell disaster for you at Sacrifice.",
+		votes: 30,
+		liked: false,
+	},
 ]
 
 app.get('/', (request, response) => {

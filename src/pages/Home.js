@@ -25,8 +25,8 @@ const Home = ({ poems, baseURL }) => {
 	const classes = useStyles()
 
 	return (
-		<div className={classes.root}>
-			<NavBar hasButton>
+		<NavBar hasButton>
+			<div className={classes.root}>
 				<Grid container>
 					{poems.map((item) => (
 						<Grid item key={item.id} xs={12} sm={6} md={4}>
@@ -34,8 +34,8 @@ const Home = ({ poems, baseURL }) => {
 						</Grid>
 					))}
 				</Grid>
-			</NavBar>
-		</div>
+			</div>
+		</NavBar>
 	)
 }
 
