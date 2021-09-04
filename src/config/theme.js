@@ -2,6 +2,14 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import '@fontsource/hahmlet'
 
 const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: '#FF7480',
+		},
+		secondary: {
+			main: '#A8E6CF',
+		},
+	},
 	typography: {
 		fontFamily: [
 			'Hahmlet',
